@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>ERROR</title>
+</head>
+<body>
+    <a href="index.html">INDEX</a>
+    <h1>Branch</h1>
+    <p><strong>git branch -M myBranch</strong> Renomme la branch courante en "myBranch"</p>
+    <p><strong>git branch -d myBranch</strong> Supprime la branch "myBranch", conserve les fichiers</p>
+    <p><strong>git branch -D myBranch</strong> Supprime la branch "myBranch", supprime tout les fichiers</p>
+    
+    <h2>STASH</h2>
+    <p>
+        Stash permet de mettre en attente des modification qui on ete faite un peu trop rapidement. <br>
+        Par exemple l'ajout d'un ficher (git add file.txt) avant la création d'une branch.   
+    </p>
+    <p><strong>git add file.txt</strong> Ajoute les modification de file.txt a l'index, git status indique qu'un commit peut etre effectué</p>
+    <p><strong>git stash</strong> Met en standby cette modification</p>
+    <p><strong>git status</strong> Git indique "nothing to commit"</p>
+    <p><strong>git branch branchToCommit</strong> On créer la branch</p>
+    <p><strong>git checkout branchToCommit</strong> On se deplace dans la branch</p>
+    <p><strong>git stash apply</strong> Applique le dernier stash effectuer, git status indique qu'un commit peut etre effectué</p>
+    <p><strong>git stash list</strong> Liste tout les stash enregistré</p>
+    <p><strong>git stash apply x</strong> Applique le stash x de la liste</p>
+    <p>
+        La modification du fichier file.txt est maintenant effective sur branchToCommit et non sur la branch courante du depart.
+    </p>
+    
+    <h2>Erreur de commit</h2>
+    <p>
+        Reset permet de supprimer un commit, d'effectuer des action puis de le rappeler. <br>
+        Par exemple lors d'un commit sur la mauvaise branche.   
+    </p>
+    <p><strong>git log</strong> Liste les commit effectué avec leur hash et leur déscription. Recuperer le hash du commit a supprimer, <br> par exemple: f0b2ac07d85a3508f599cefa087ec512029158d7.</p>
+    <p><strong>git reset --hard HEAD^</strong> Supprime le dernier commit (HEAD, pour le dernier), il n'apparait plus avec git log.</p>
+    <p>Changer de branche...</p>
+    <p><strong>git reset --hard f0b2ac07d85a3508f599cefa087ec512029158d7</strong> Supprime le dernier commit (HEAD, pour le dernier), il na'apparait plus avec git log. <br> Il est possible de n'utiliser que les huit premiers caracteres, par exemple: f0b2ac07</p>
+    
+    
+    <h2>Mauvais message de commit</h2>
+    <p><strong>git commit --amende -m "message modifié"</strong> Remplace le message du dernier commit par "message modifié"</p>
+    <p><strong>git log</strong> Le dernier commit affiche maintenant "message modifié"</p>
+    
+    
+    <h2>Oubli d'un fichier dans le dernier commit</h2>
+    <p><strong>git add monFichier.txt</strong> On ajoute le fichier a l'index</p>
+    <p><strong>git commit --amend --no-edit</strong> On met a jour le dernier commit, --no-edit permet de conserver le message.</p>
+    
+    <h2>Annuler un commit publié</h2>
+    <p><strong>git revert HEAD^</strong> Annule un commit par la creaton d'un nouveau</p>
+    
+
+
+</body>
+</html>
