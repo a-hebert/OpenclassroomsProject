@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CONFLICT</title>
+</head>
+<body>
+    <a href="index.html">INDEX</a>
+    <h1>CONFLICT</h1>
+    
+    <p>En cas de conflit git affiche les difference et permet d'editer le fichier avant de valider les modifications. </p>
+    <p>
+        <<<<<<< HEAD  <br>
+        grrrx!x!x!x <br>
+        ======= <br>
+        grrr? <br>
+        >>>>>>> br <br>
+    </p>
+    <p>Necessite de recommiter pour prendre en compte les changements puis merge.</p>
+
+    <p><strong>git revert HEAD</strong> Revient avant le dernier commit en en refaisant un autre.</p>
+    
+    <h2>REFLOG</h2>
+    <p>Reflog permet de visualiser l'historique pour s'y deplacer</p>
+    <p><strong>git reflog</strong> Affiche la premiere page de l'historique.</p>
+    <p><strong>[ENTER]</strong> Affiche la ligne suivant.</p>
+    <p><strong>[q]</strong> Permet de quitter reflog.</p>
+    <p><strong>git checkout xxxxxxxx</strong> Permet de se positionner a l'instant xxxxxxxx.</p>
+    <p><strong>git checkout nom_de_la_branch</strong> Permet de revenir a l'intant present dans la branch.</p>
+    
+    <h2>BLAME</h2>
+    <p>
+        Blame permet de visualiser un fichier ligne par ligne pour savoir qui a fait quoi et quand ainsi que le hash de la modif. <br>
+        Avec le hash de la mofif et checkout il est possible de se positionner a l'intant de cette modif.
+    </p>
+    <p><strong>git blame file.txt</strong> Affiche file.txt et donne des info ligne par ligne.</p>
+    <p><strong>git checkout xxxxxxxx</strong> Permet de se positionner a l'instant xxxxxxxx.</p>
+    <p><strong>git checkout nom_de_la_branch</strong> Permet de revenir a l'intant present dans la branch.</p>
+
+    
+    <h2>CHERRY PICK</h2>
+    <p>
+        Cherry pick permet de merger uniquement l'un des commit d'une branch.
+    </p>
+    <p><strong>git checkout xxxxxxxx</strong> On se positionne dans la branch contenant le commit qui nous intersse.</p>
+    <p><strong>git log</strong> On recupere le hash du commit qui nous interesse.</p>
+    <p><strong>git checkout myBranch</strong> On se positionne dans la branch qui recevra le merge des commits.</p>
+    <p><strong>git cherry-pick xxxxxxxx yyyyyyyy</strong> On merge le ou les commit qui nous interesse.</p>
+
+    
+    
+
+
+</body>
+</html>
